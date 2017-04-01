@@ -1,0 +1,20 @@
+{
+  "name": "teststage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently --kill-others  \"npm run scss\" \"npm run serve\"",
+    "serve": "browser-sync start --proxy test.dev -f ./**/* -b Chrome",
+    "scss": "node-sass ./assets/scss/app.scss ./assets/css/app.css --source-map true --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "S.Menz <s.menz@fbo.de>",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "concurrently": "^3.4.0",
+    "jquery": "^3.2.1",
+    "node-sass": "^4.5.2"
+  }
+}

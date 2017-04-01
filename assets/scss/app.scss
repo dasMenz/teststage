@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: white;
+}
+div {
+    border: 1px solid red;
+}
+.sidebar {
+    a {
+        display: block;
+    }
+}
+/*
+layout:
+        meta
+logo                main
+left    content     right
+        footer
+*/
+.grid-container {
+    max-width: 1024px;
+    padding: 0 30px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 15% auto 15%;
+    grid-template-rows: auto; //25% auto 25%;
+    grid-gap: 15px;
+    grid-template-areas:
+        "meta meta meta"
+        "logo main main"
+        "leftsidebar content content"
+        "footer footer footer";
+    //justify-content: space-evenly;
+}
+#meta-navigation {
+    grid-area: meta;
+    justify-content: right;
+}
+#logo {
+    //grid-column: 1 / 1;
+    //grid-row: 2;
+    grid-area: logo;
+    align-self: center;
+}
+#main-navigation {
+    //grid-column: 2 / 4;
+    //grid-row: 2;
+    grid-area: main;
+    justify-self: right;
+    align-self: center;
+}
+#left-sidebar {
+    //grid-column: 1 / 1;
+    //grid-row: 3;
+    grid-area: leftsidebar;
+}
+#content {
+    //grid-column: 2 / 2;
+    //grid-row: 3;
+    grid-area: content;
+}
+#right-sidebar {
+    //grid-column: 3 / 3;
+    //grid-row: 3;
+    grid-area: rightsidebar;
+}
+#footer {
+    //grid-column: 1 / 4;
+    //grid-row: 4;
+    grid-area: footer;
+    display: grid;
+    grid-template-columns: 15% auto auto;
+    grid-template-rows: auto;
+    grid-gap: 0 15px;
+    grid-template-areas:
+        "footer-logo footer-nav footer-partner"
+        "footer-copy footer-copy footer-copy"
+        "footer-meta footer-meta footer-meta";
+    #footer-logo {
+        grid-area: footer-logo;
+        align-self: center;
+    }
+    #footer-nav {
+        grid-area: footer-nav;
+        justify-self: right;
+        align-self: center;
+    }
+    #footer-partner {
+        grid-area: footer-partner;
+        justify-self: right;
+        align-self: center;
+    }
+    #footer-meta {
+        grid-area: footer-meta;
+        justify-self: center;
+    }
+    #footer-copy {
+        grid-area: footer-copy;
+        justify-self: center;
+    }
+}
+@media screen and (max-width: 640px){
+    .grid-container {
+        padding: 0 15px;
+        grid-template-columns: auto auto;
+        grid-template-areas:            
+            "logo main"
+            "leftsidebar leftsidebar"
+            "content content"
+            //"rightsidebar rightsidebar"
+            "meta meta"
+            "footer footer";
+    }
+    #footer {
+        grid-template-columns: auto;
+        grid-template-areas:
+            "footer-logo"
+            "footer-nav"
+            "footer-partner"
+            "footer-copy"
+            "footer-meta";
+    }
+}
